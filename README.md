@@ -4,18 +4,31 @@ This is a demo React application that can be used to demonstrate how to use Dock
 The application was started from https://github.com/kriasoft/react-starter-kit.
 
 ## What you need
-- This repository
-- Docker 
-- Docker: If you are using a MacOS: https://www.docker.com/products/docker-desktop
-- Docker: If you are using Windows: https://github.com/docker/toolbox/releases/download/v19.03.1/DockerToolbox-19.03.1.exe
+- Clone or download this repository.
+- Docker
+
+## Setting Up Docker on MacOS
+If you have a Mac you are in luck! Installing docker should be pretty easy!
+Install Docker Desktop: https://www.docker.com/products/docker-desktop
+
+## Setting Up Docker on Windows
+Windows?! Well, your going to have a bit fun install docker.
+Download: https://github.com/docker/toolbox/releases/download/v19.03.1/DockerToolbox-19.03.1.exe 
+
+Walk through the installer and make sure not to uncheck any of the items for install. Once installed, 
+run the Docker Quickstart Terminal as Administrator. It may take a little bit to configure itself. 
+If it is successful, you should get a command line prompt with an ASCII whale.
 
 
 ## Workshop
-1. Clone the repository or download the code. We'll pretend we are working on
+
+### Step 1
+Clone the repository or download the code. We'll pretend we are working on
 a task to dockerize the application to get it ready to deploy to a cloud environment.
 
 
-2. This application uses MongoDB. To run it locally, we'll want to setup MongoDB.
+### Step 2
+This application uses MongoDB. To run it locally, we'll want to setup MongoDB.
 An easy way to do this is by using Docker. It is fairly easy to find official Docker images
 for well known software like MongoDB. Open up your command line or terminal and
 enter the following:
@@ -25,8 +38,8 @@ docker pull mongo:latest
 This will pull down the latest MongoDB docker image for you to use locally. You can see
 more details about this image at https://hub.docker.com/_/mongo.
 
-
-3. Once step 2 has completed, let's try running it!
+### Step 3
+Once step 2 has completed, let's try running it!
 ```
 docker run --name homeward-mongo –d mongo:latest
 ```
@@ -48,11 +61,12 @@ show dbs
 ```
 You should see the default mongo databases.
 
-4. Let's go back to the app for a moment...Create a Dockerfile in the root directory of the project. The file will literally
+### Step 4
+Let's go back to the app for a moment...Create a Dockerfile in the root directory of the project. The file will literally
 be called "Dockerfile".
 
-
-5. First, we will start by creating the build image:
+### Step 5
+First, we will start by creating the build image:
 ```
 FROM node:10 as build
 WORKDIR /app-install
@@ -74,8 +88,8 @@ This is the first part of our image! Nice! Go ahead and build it:
 docker build -t homeward-app .
 ```
 
-
-6. Let's build the next part which will produce a production ready image.
+### Step 6
+Let's build the next part which will produce a production ready image.
 This should go right under step 3 in "Dockerfile".
 ```
 FROM node:10
@@ -101,7 +115,8 @@ CMD [ "node", "server.js" ]
 We've just written a mutli-stage build Dockerfile. (https://docs.docker.com/develop/develop-images/multistage-build/)
 
 
-7. Now, let's finish the build! Run the same build command on the command line in the root directory of the project:
+### Step 7
+Now, let's finish the build! Run the same build command on the command line in the root directory of the project:
 ```
 docker build -t homeward-app .
 ```
@@ -110,33 +125,35 @@ it should be much faster. It should only build the new steps we added. Each capi
 layer.
 
 
-8. Now that we have build our image, let's try to run it:
+### Step 8
+Now that we have build our image, let's try to run it:
 ```
 docker run -it homeward-app
 ```
 You should see an error related to MongoDB connection.
 
 
-9. Let's connect our two Docker containers together. Since we ran the mongo
+### Step 9
+Let's connect our two Docker containers together. Since we ran the mongo
 image in detached mode, let's kill the image so we can reconfigure how it's running.
 ```
 docker container rm --force homeward-mongo
 ```
 
-
-10. We will now create a docker network:
+### Step 10
+We will now create a docker network:
 ```
 docker network create homeward-network
 ```
 
-
-11. Re-start the mongo image:
+### Step 11
+Re-start the mongo image:
 ```
 docker run --name homeward-mongo -d --net homeward-network mongo:latest
 ```
 
-
-12. ...And let's also run the app image. We will expose port 3000 so that
+### Step 12
+...And let's also run the app image. We will expose port 3000 so that
 we can access the application in our browsers. We will also pass in a value
 for the app environment variable `DATABASE_URL` so the container knows how
 to find MongoDB on the docker network. It is addressable by the value we set
@@ -146,12 +163,12 @@ MongoDB container.
 docker run --name homeward-app -d --net homeward-network -p 3000:3000 -e "DATABASE_URL=mongodb://homeward-mongo:27017/homeward" homeward-app:latest
 ```
 
-
-13. Let's check that the docker images are running successfully by opening
+### Step 13
+Let's check that the docker images are running successfully by opening
 http://localhost:3000
 
-
-14. There is a much easier way to orchestrate all of this with Docker Compose! Let's create the same two containers in a 
+### Step 14
+There is a much easier way to orchestrate all of this with Docker Compose! Let's create the same two containers in a 
 compose file. In the root directory of the project create the following file named "docker-compose.yaml":
 ```
 version: "3.7"
