@@ -1,0 +1,17 @@
+@import '../variables.css';
+
+.root {
+  width: 300px;
+  padding: 20px;
+  display: inline-block;
+  min-height: 300px;
+}
+
+.petName h3 {
+  display:inline-block;
+}
+
+.petName i {
+  float: right;
+  padding: 20px 5px 0;
+}
