@@ -5,7 +5,7 @@ The application was started from https://github.com/kriasoft/react-starter-kit.
 
 ## What you need
 - Clone or download this repository.
-- Docker
+- Docker (skip installing Docker if you already have installed it)
 
 ## Setting Up Docker on MacOS
 If you have a Mac you are in luck! Installing docker should be pretty easy!
