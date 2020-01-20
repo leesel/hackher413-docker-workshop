@@ -12,7 +12,7 @@ If you have a Mac you are in luck! Installing docker should be pretty easy!
 Install Docker Desktop: https://www.docker.com/products/docker-desktop
 
 ## Setting Up Docker on Windows
-Windows?! Well, you are going to have a bit fun install docker.
+Windows?! Well, you are going to have a bit fun installing docker.
 Download: https://github.com/docker/toolbox/releases/download/v19.03.1/DockerToolbox-19.03.1.exe 
 
 Walk through the installer and make sure not to uncheck any of the items for install. Once installed, 
