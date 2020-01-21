@@ -5,7 +5,8 @@ import Layout from '../../components/Layout';
 async function action({ fetch }) {
   const resp = await fetch('/graphql', {
     body: JSON.stringify({
-      query: '{ pets { name, description, age, gender, type, age, breed, photo } }',
+      query:
+        '{ pets { name, description, age, gender, type, age, breed, picture } }',
     }),
   });
   const { data } = await resp.json();
@@ -19,6 +20,6 @@ async function action({ fetch }) {
       </Layout>
     ),
   };
-};
+}
 
 export default action;

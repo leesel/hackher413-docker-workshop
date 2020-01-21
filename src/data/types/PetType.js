@@ -17,7 +17,7 @@ const PetType = new ObjectType({
     breed: { type: StringType },
     status: { type: StringType },
     description: { type: StringType },
-    photo: { type: StringType }
+    picture: { type: StringType },
   },
 });
 

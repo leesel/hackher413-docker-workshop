@@ -18,7 +18,9 @@ export default function Header() {
   return (
     <div className={s.root}>
       <div className={s.container}>
-        <Navigation />
+        <div className={s.navContainer}>
+          <Navigation />
+        </div>
         <div className={s.banner}>
           <img src={logoUrl} width="250" />
         </div>

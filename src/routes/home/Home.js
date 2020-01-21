@@ -11,7 +11,7 @@ import useStyles from 'isomorphic-style-loader/useStyles';
 import React from 'react';
 import PropTypes from 'prop-types';
 import s from './Home.css';
-import PetCard from "../../components/PetCard/PetCard";
+import PetCard from '../../components/PetCard/PetCard';
 
 export default function Home({ pets }) {
   useStyles(s);

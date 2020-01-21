@@ -7,8 +7,17 @@
   min-height: 300px;
 }
 
+.root p {
+  margin: 5px 0;
+}
+
+.root img {
+  width: 300px;
+}
+
 .petName h3 {
   display:inline-block;
+  font-weight: normal;
 }
 
 .petName i {

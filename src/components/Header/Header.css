@@ -24,6 +24,10 @@
   max-width: var(--max-content-width);
 }
 
+.navContainer {
+  overflow: hidden;
+}
+
 .brand {
   color: color(var(--brand-color) lightness(+10%));
   text-decoration: none;

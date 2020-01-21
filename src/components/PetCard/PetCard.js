@@ -6,13 +6,13 @@ export default function PetCard({ pet }) {
   useStyles(s);
   return (
     <div className={s.root}>
-      <img src={"https://placekitten.com/300/400"} alt={"blah"} />
+      <img src={pet.picture} />
       <div className={s.petName}>
         <h3>{pet.name}</h3>
-        { pet.type ==='cat' && <i className="fas fa-cat"/> }
-        { pet.type ==='dog' && <i className="fas fa-dog"/> }
-        { pet.gender ==='male' && <i className="fas fa-mars"/> }
-        { pet.gender ==='female' && <i className="fas fa-venus"/> }
+        {pet.type === 'cat' && <i className="fas fa-cat" />}
+        {pet.type === 'dog' && <i className="fas fa-dog" />}
+        {pet.gender === 'male' && <i className="fas fa-mars" />}
+        {pet.gender === 'female' && <i className="fas fa-venus" />}
       </div>
       <p>Breed: {pet.breed}</p>
       <p>Age: {pet.age}</p>
