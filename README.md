@@ -9,7 +9,7 @@ The application was started from https://github.com/kriasoft/react-starter-kit.
 
 ## Setting Up Docker on MacOS
 If you have a Mac you are in luck! Installing docker should be pretty easy!
-Install Docker Desktop: https://www.docker.com/products/docker-desktop
+Install Docker Desktop: https://hub.docker.com/editions/community/docker-ce-desktop-mac
 
 ## Setting Up Docker on Windows
 Windows?! Well, you are going to have a bit of fun installing docker.
