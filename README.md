@@ -41,7 +41,7 @@ more details about this image at https://hub.docker.com/_/mongo.
 ### Step 3
 Once step 2 has completed, let's try running it!
 ```
-docker run --name homeward-mongo –d mongo:latest
+docker run --name homeward-mongo -d mongo:latest
 ```
 This command will run the docker image in detached mode in the background.
 Next, let's execute some commands inside the container to observe how it is
